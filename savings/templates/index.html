@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saving Calculator</title>
+</head>
+<body>
+    <h1> Saving Calculator</h1>
+
+        <form method="post" action="/savings/">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <div    class="fieldWrapper">
+                        <td><lable for="{{ from.capital.id_for_label }}">Initial capital</lable></td>
+                        <td>{{ form.capital }}</td>
+                    </div>
+                </tr>
+                <tr>
+                    <div    class="fieldWrapper">
+                    <td><lable for="{{ from.years.id_for_label }}">Number of Years</lable></td>
+                    <td>{{ form.years }}</td>
+                    </div>
+                </tr>
+                <tr>
+                     <div   class="fieldWrapper">
+                      <td><lable for="{{ from.interest.id_for_label }}">Interest Rate (annual)</lable></td>
+                     <td>{{ form.interest }}</td>
+                     </div>
+                </tr>
+                {% if form.errors %}
+                    <h3 style="color: Red">Error only Integer</h3>
+                {% endif %}
+            <tr>
+                <td>
+                    <input type="submit" value="Submit"/>
+                </td>
+            </tr>
+            </table>
+            {% if valid  %}
+               <h3><strong> Capital at the end of {{ years }} years: {{ final_capital }}</strong></h3>
+            {% endif %}
+            <h2> Check previous queries <a href="displaydata/displaydata.html">here</a>&nbsp;for history </h2>
+        </form>
+
+</body>
+</html>

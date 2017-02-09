@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History of Queries</title>
+</head>
+<body>
+
+<table cellspacing="15">
+    <tr>
+        <th>
+            Intial Capital
+        </th>
+        <th>
+            Years
+        </th>
+        <th>
+            Interest
+        </th>
+        <th>
+            Final Capital
+        </th>
+    </tr>
+    {% for savings in all_users %}
+    <tr align="center">
+        <td>{{ savings.capital }}</td>
+        <td>{{ savings.years }}</td>
+        <td>{{ savings.interest }}</td>
+        <td>{{ savings.final_capital }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<a href="{% url 'index' %}"> <h3> Make a new query </h3> </a>
+</body>
+</html>
